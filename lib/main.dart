@@ -5,13 +5,9 @@ import 'package:martin_pulgar_demo/core/network/web_services_manager.dart';
 
 final getIt = GetIt.instance;
 
-Future<void> main() async {
-  _setup();
-  runApp(const MyApp());
-}
-
-void _setup() {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
   getIt.registerSingleton<WebServicesManager>(WebServicesManager(),
       signalsReady: true);
+  runApp(const MyApp());
 }

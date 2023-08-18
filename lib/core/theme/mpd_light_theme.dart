@@ -3,23 +3,31 @@ import 'package:flutter/material.dart';
 class MspLightTheme {
   static ThemeData get getThemeData {
     return ThemeData(
-      appBarTheme: AppBarTheme(
-        backgroundColor: _primaryColor,
-      ),
-      textButtonTheme: TextButtonThemeData(
-        style: ButtonStyle(
-          foregroundColor: MaterialStateProperty.all(
-              _primaryColor), // Set the desired button color
+      colorScheme:
+          const ColorScheme.light().copyWith(secondary: Colors.grey.shade400),
+      appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.black,
+          titleTextStyle: TextStyle(
+            fontSize: _appBarTitleFontSize,
+            fontWeight: FontWeight.w600,
+          )),
+      scaffoldBackgroundColor: _backgroundColor,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          textStyle: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: _mediumButtonFontSize,
+            color: Colors.white,
+          ),
+          backgroundColor: _primaryColor,
         ),
-      ),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        selectedItemColor: _primaryColor,
-        unselectedItemColor:
-            _secondaryColor, // Set the desired selected icon color
       ),
     );
   }
 
-  static Color _primaryColor = Color(0xFF198CD8);
-  static Color _secondaryColor = Color(0xFF555555);
+  static const Color _primaryColor = Color(0xFF97D602);
+  static const Color _backgroundColor = Color(0xFFF1F5F7);
+
+  static const double _mediumButtonFontSize = 16.0;
+  static const double _appBarTitleFontSize = 32.0;
 }

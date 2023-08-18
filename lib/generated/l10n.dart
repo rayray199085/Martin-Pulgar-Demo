@@ -50,31 +50,111 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Home`
-  String get home {
+  /// `Add Photos to site diary`
+  String get addPhotosToSiteDiary {
     return Intl.message(
-      'Home',
-      name: 'home',
+      'Add Photos to site diary',
+      name: 'addPhotosToSiteDiary',
       desc: '',
       args: [],
     );
   }
 
-  /// `Home Screen`
-  String get homeScreen {
+  /// `Add to site diary`
+  String get addToSiteDiary {
     return Intl.message(
-      'Home Screen',
-      name: 'homeScreen',
+      'Add to site diary',
+      name: 'addToSiteDiary',
       desc: '',
       args: [],
     );
   }
 
-  /// `Settings`
-  String get settings {
+  /// `Comments`
+  String get comments {
     return Intl.message(
-      'Settings',
-      name: 'settings',
+      'Comments',
+      name: 'comments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Details`
+  String get details {
+    return Intl.message(
+      'Details',
+      name: 'details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Link to existing event?`
+  String get linkToExistingEvent {
+    return Intl.message(
+      'Link to existing event?',
+      name: 'linkToExistingEvent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get next {
+    return Intl.message(
+      'Next',
+      name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Diary`
+  String get newDiary {
+    return Intl.message(
+      'New Diary',
+      name: 'newDiary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select an event`
+  String get selectAnEvent {
+    return Intl.message(
+      'Select an event',
+      name: 'selectAnEvent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Area`
+  String get selectArea {
+    return Intl.message(
+      'Select Area',
+      name: 'selectArea',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tags`
+  String get tags {
+    return Intl.message(
+      'Tags',
+      name: 'tags',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Task Category`
+  String get taskCategory {
+    return Intl.message(
+      'Task Category',
+      name: 'taskCategory',
       desc: '',
       args: [],
     );

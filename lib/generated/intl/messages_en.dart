@@ -22,8 +22,20 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "home": MessageLookupByLibrary.simpleMessage("Home"),
-        "homeScreen": MessageLookupByLibrary.simpleMessage("Home Screen"),
-        "settings": MessageLookupByLibrary.simpleMessage("Settings")
+        "addPhotosToSiteDiary":
+            MessageLookupByLibrary.simpleMessage("Add Photos to site diary"),
+        "addToSiteDiary":
+            MessageLookupByLibrary.simpleMessage("Add to site diary"),
+        "comments": MessageLookupByLibrary.simpleMessage("Comments"),
+        "details": MessageLookupByLibrary.simpleMessage("Details"),
+        "linkToExistingEvent":
+            MessageLookupByLibrary.simpleMessage("Link to existing event?"),
+        "newDiary": MessageLookupByLibrary.simpleMessage("New Diary"),
+        "next": MessageLookupByLibrary.simpleMessage("Next"),
+        "selectAnEvent":
+            MessageLookupByLibrary.simpleMessage("Select an event"),
+        "selectArea": MessageLookupByLibrary.simpleMessage("Select Area"),
+        "tags": MessageLookupByLibrary.simpleMessage("Tags"),
+        "taskCategory": MessageLookupByLibrary.simpleMessage("Task Category")
       };
 }

@@ -1,5 +1,13 @@
 {
-    "home": "Home",
-    "homeScreen": "Home Screen",
-    "settings": "Settings"
+    "addPhotosToSiteDiary": "Add Photos to site diary",
+    "addToSiteDiary": "Add to site diary",
+    "comments": "Comments",
+    "details": "Details",
+    "linkToExistingEvent": "Link to existing event?",
+    "next": "Next",
+    "newDiary": "New Diary",
+    "selectAnEvent": "Select an event",
+    "selectArea": "Select Area",
+    "tags": "Tags",
+    "taskCategory": "Task Category"
 }
