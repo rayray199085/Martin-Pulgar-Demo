@@ -4,6 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:martin_pulgar_demo/feature/screens/new_diary/cubit/new_diary_cubit.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:martin_pulgar_demo/feature/screens/new_diary/widgets/new_diary_content_view.dart';
+import 'package:martin_pulgar_demo/feature/screens/new_diary/widgets/new_diary_location_info_view.dart';
 
 import '../../widgets/circle_icon_button.dart';
 
@@ -38,36 +39,44 @@ class NewDiaryBody extends StatelessWidget {
     return BlocBuilder<NewDiaryCubit, NewDiaryState>(
       builder: (context, state) {
         return SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Row(
+          child: Column(
+            children: [
+              const NewDiaryLocationInfoView(
+                locationInfo: '20041075 | TAP-NS-TAP-North Strathfield',
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16.0, 20.0, 16.0, 40.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text(
-                      AppLocalizations.of(context)!.addToSiteDiary,
-                      style: Theme.of(context).textTheme.titleLarge,
+                    Row(
+                      children: [
+                        Text(
+                          AppLocalizations.of(context)!.addToSiteDiary,
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                        const Spacer(),
+                        CircleIconButton(
+                          icon: Icons.question_mark_rounded,
+                          backgroundColor:
+                              Theme.of(context).colorScheme.secondary,
+                          onTap: () {},
+                        ),
+                      ],
                     ),
-                    const Spacer(),
-                    CircleIconButton(
-                      icon: Icons.question_mark_rounded,
-                      backgroundColor: Theme.of(context).colorScheme.secondary,
-                      onTap: () {},
-                    ),
+                    const NewDiaryContentView(),
+                    const SizedBox(height: 20.0),
+                    ElevatedButton(
+                        onPressed: () {},
+                        child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 16.0),
+                            child: Text(
+                              AppLocalizations.of(context)!.next,
+                            ))),
                   ],
                 ),
-                const NewDiaryContentView(),
-                const SizedBox(height: 20.0),
-                ElevatedButton(
-                    onPressed: () {},
-                    child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 16.0),
-                        child: Text(
-                          AppLocalizations.of(context)!.next,
-                        ))),
-              ],
-            ),
+              ),
+            ],
           ),
         );
       },
