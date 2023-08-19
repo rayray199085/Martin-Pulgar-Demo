@@ -8,6 +8,7 @@
     "linkToExistingEvent": "Link to existing event?",
     "next": "Next",
     "newDiary": "New Diary",
+    "newDiaryCreateSuccessfully": "New Diary has been created successfully.",
     "selectAnEvent": "Select an event",
     "selectArea": "Select Area",
     "tags": "Tags",

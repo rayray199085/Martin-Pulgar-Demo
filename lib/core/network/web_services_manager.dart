@@ -12,21 +12,20 @@ class WebServicesManager {
 
   void configureDio() {
     // Set default configs
-    _dio.options.baseUrl = 'https://api.pub.dev';
+    _dio.options.baseUrl = WebServicesConstants.baseURL;
     _dio.options.connectTimeout = WebServicesConstants.connectTimeout;
     _dio.options.sendTimeout = WebServicesConstants.sendTimeout;
     _dio.options.receiveTimeout = WebServicesConstants.receiveTimeout;
   }
 
-  Future<void> request({required Request model}) async {
-    final bodyData = model.isFormData ? model.getFormData() : model.data;
+  Future<dynamic> request({required Request model}) async {
     try {
       final response = await _dio.request(
         model.path,
         queryParameters: model.queryParams,
-        data: bodyData,
+        data: model.data,
         options: Options(
-          method: model.toString(),
+          method: model.method.name.toUpperCase(),
           headers: model.header,
           responseType: model.responseType,
         ),
@@ -36,15 +35,15 @@ class WebServicesManager {
         return response.data;
       } else {
         throw WebServicesException(WebServicesError.noData,
-            message: 'No data found in the response.');
+            message: WebServicesConstants.noDataFoundErrorMessage);
       }
     } on DioException catch (dioError) {
       if (dioError.type == DioExceptionType.unknown ||
           dioError.type == DioExceptionType.connectionTimeout) {
         throw WebServicesException(WebServicesError.networkError,
-            message: 'Network error occurred.');
+            message: WebServicesConstants.networkErrorMessage);
       } else if (dioError.type == DioExceptionType.badResponse) {
-        String errorMessage = 'Unknown Error';
+        String errorMessage = WebServicesConstants.unknownErrorMessage;
         if (dioError.response?.data != null) {
           errorMessage = dioError.response!.data.toString();
         }
@@ -67,11 +66,11 @@ class WebServicesManager {
         }
       } else {
         throw WebServicesException(WebServicesError.unknown,
-            message: 'Unknown error occurred.');
+            message: WebServicesConstants.unknownErrorMessage);
       }
     } catch (error) {
       throw WebServicesException(WebServicesError.unknown,
-          message: 'Unknown error occurred.');
+          message: WebServicesConstants.unknownErrorMessage);
     }
   }
 }

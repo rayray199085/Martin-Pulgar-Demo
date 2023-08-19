@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:martin_pulgar_demo/core/repositories/new_diary_repository.dart';
 import 'package:martin_pulgar_demo/feature/screens/new_diary/cubit/new_diary_cubit.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:martin_pulgar_demo/feature/screens/new_diary/widgets/new_diary_content_view.dart';
@@ -23,7 +25,8 @@ class NewDiaryScreen extends StatelessWidget {
         title: Text(AppLocalizations.of(context)!.newDiary),
       ),
       body: BlocProvider(
-        create: (_) => NewDiaryCubit(imagePicker: ImagePicker()),
+        create: (_) => NewDiaryCubit(
+            imagePicker: ImagePicker(), repository: NewDiaryRepository()),
         child: const NewDiaryBody(),
       ),
     );
@@ -36,7 +39,17 @@ class NewDiaryBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NewDiaryCubit, NewDiaryState>(
+    return BlocConsumer<NewDiaryCubit, NewDiaryState>(
+      listener: (context, state) {
+        if (state.createSuccess) {
+          Fluttertoast.showToast(
+              msg: AppLocalizations.of(context)!.newDiaryCreateSuccessfully,
+              gravity: ToastGravity.CENTER);
+        } else if (state.errorMessage != null) {
+          Fluttertoast.showToast(
+              msg: state.errorMessage!, gravity: ToastGravity.CENTER);
+        }
+      },
       builder: (context, state) {
         return SingleChildScrollView(
           child: Column(
@@ -67,7 +80,10 @@ class NewDiaryBody extends StatelessWidget {
                     const NewDiaryContentView(),
                     const SizedBox(height: 20.0),
                     ElevatedButton(
-                        onPressed: () {},
+                        onPressed: state.createSuccess
+                            ? null
+                            : () => BlocProvider.of<NewDiaryCubit>(context)
+                                .createNewDiary(),
                         child: Padding(
                             padding: const EdgeInsets.symmetric(vertical: 16.0),
                             child: Text(

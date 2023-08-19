@@ -140,6 +140,16 @@ class S {
     );
   }
 
+  /// `New Diary has been created successfully.`
+  String get newDiaryCreateSuccessfully {
+    return Intl.message(
+      'New Diary has been created successfully.',
+      name: 'newDiaryCreateSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Select an event`
   String get selectAnEvent {
     return Intl.message(

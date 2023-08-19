@@ -34,6 +34,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "linkToExistingEvent":
             MessageLookupByLibrary.simpleMessage("Link to existing event?"),
         "newDiary": MessageLookupByLibrary.simpleMessage("New Diary"),
+        "newDiaryCreateSuccessfully": MessageLookupByLibrary.simpleMessage(
+            "New Diary has been created successfully."),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "selectAnEvent":
             MessageLookupByLibrary.simpleMessage("Select an event"),
