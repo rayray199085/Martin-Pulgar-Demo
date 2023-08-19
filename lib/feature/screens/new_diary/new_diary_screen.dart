@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:martin_pulgar_demo/feature/screens/new_diary/cubit/new_diary_cubit.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:martin_pulgar_demo/feature/screens/new_diary/widgets/new_diary_content_view.dart';
@@ -21,7 +22,7 @@ class NewDiaryScreen extends StatelessWidget {
         title: Text(AppLocalizations.of(context)!.newDiary),
       ),
       body: BlocProvider(
-        create: (_) => NewDiaryCubit(),
+        create: (_) => NewDiaryCubit(imagePicker: ImagePicker()),
         child: const NewDiaryBody(),
       ),
     );
