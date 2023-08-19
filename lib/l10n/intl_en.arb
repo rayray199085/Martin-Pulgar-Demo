@@ -1,8 +1,10 @@
 {
+    "addAPhoto": "Add a photo",
     "addPhotosToSiteDiary": "Add Photos to site diary",
     "addToSiteDiary": "Add to site diary",
     "comments": "Comments",
     "details": "Details",
+    "includeInPhotoGallery": "Include in photo gallery",
     "linkToExistingEvent": "Link to existing event?",
     "next": "Next",
     "newDiary": "New Diary",

@@ -22,12 +22,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "addAPhoto": MessageLookupByLibrary.simpleMessage("Add a photo"),
         "addPhotosToSiteDiary":
             MessageLookupByLibrary.simpleMessage("Add Photos to site diary"),
         "addToSiteDiary":
             MessageLookupByLibrary.simpleMessage("Add to site diary"),
         "comments": MessageLookupByLibrary.simpleMessage("Comments"),
         "details": MessageLookupByLibrary.simpleMessage("Details"),
+        "includeInPhotoGallery":
+            MessageLookupByLibrary.simpleMessage("Include in photo gallery"),
         "linkToExistingEvent":
             MessageLookupByLibrary.simpleMessage("Link to existing event?"),
         "newDiary": MessageLookupByLibrary.simpleMessage("New Diary"),

@@ -5,6 +5,9 @@ class MspLightTheme {
     return ThemeData(
       colorScheme:
           const ColorScheme.light().copyWith(secondary: Colors.grey.shade400),
+      checkboxTheme: CheckboxThemeData(
+        fillColor: MaterialStateProperty.all(_primaryColor),
+      ),
       appBarTheme: const AppBarTheme(
           backgroundColor: Colors.black,
           titleTextStyle: TextStyle(

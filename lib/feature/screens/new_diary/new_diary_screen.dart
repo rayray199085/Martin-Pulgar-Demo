@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:martin_pulgar_demo/feature/screens/new_diary/cubit/new_diary_cubit.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:martin_pulgar_demo/feature/screens/new_diary/widget/help_button.dart';
-import 'package:martin_pulgar_demo/feature/screens/new_diary/widget/section_card.dart';
+import 'package:martin_pulgar_demo/feature/screens/new_diary/widgets/new_diary_content_view.dart';
+
+import '../../widgets/circle_icon_button.dart';
 
 class NewDiaryScreen extends StatelessWidget {
   const NewDiaryScreen({super.key});
@@ -48,64 +49,19 @@ class NewDiaryBody extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const Spacer(),
-                    HelpButton(onPressed: () {}),
+                    CircleIconButton(
+                      icon: Icons.question_mark_rounded,
+                      backgroundColor: Theme.of(context).colorScheme.secondary,
+                      onTap: () {},
+                    ),
                   ],
                 ),
-                const SizedBox(height: 10),
-                SectionCard(
-                  headerLabel:
-                      AppLocalizations.of(context)!.addPhotosToSiteDiary,
-                  body: Column(
-                    children: [
-                      Container(
-                        color: Colors.red,
-                        height: 120,
-                      )
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 20),
-                SectionCard(
-                  headerLabel: AppLocalizations.of(context)!.comments,
-                  body: Column(
-                    children: [
-                      Container(
-                        color: Colors.red,
-                        height: 120,
-                      )
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 20),
-                SectionCard(
-                  headerLabel: AppLocalizations.of(context)!.details,
-                  body: Column(
-                    children: [
-                      Container(
-                        color: Colors.red,
-                        height: 120,
-                      )
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 20),
-                SectionCard(
-                  headerLabel:
-                      AppLocalizations.of(context)!.linkToExistingEvent,
-                  body: Column(
-                    children: [
-                      Container(
-                        color: Colors.red,
-                        height: 120,
-                      )
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 20),
+                const NewDiaryContentView(),
+                const SizedBox(height: 20.0),
                 ElevatedButton(
                     onPressed: () {},
                     child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        padding: const EdgeInsets.symmetric(vertical: 16.0),
                         child: Text(
                           AppLocalizations.of(context)!.next,
                         ))),

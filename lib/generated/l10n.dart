@@ -50,6 +50,16 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Add a photo`
+  String get addAPhoto {
+    return Intl.message(
+      'Add a photo',
+      name: 'addAPhoto',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Add Photos to site diary`
   String get addPhotosToSiteDiary {
     return Intl.message(
@@ -85,6 +95,16 @@ class S {
     return Intl.message(
       'Details',
       name: 'details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Include in photo gallery`
+  String get includeInPhotoGallery {
+    return Intl.message(
+      'Include in photo gallery',
+      name: 'includeInPhotoGallery',
       desc: '',
       args: [],
     );
