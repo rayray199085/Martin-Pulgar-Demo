@@ -27,7 +27,7 @@ class NewDiaryCubit extends Cubit<NewDiaryState> {
         emit(state.copyWith(photoList: [...state.photoList, imageFile]));
       }
     } on Exception catch (e) {
-      log(e.toString());
+      emit(state.copyWith(errorMessage: e.toString()));
     }
   }
 

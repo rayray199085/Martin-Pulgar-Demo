@@ -42,12 +42,9 @@ class NewDiaryBody extends StatelessWidget {
     return BlocConsumer<NewDiaryCubit, NewDiaryState>(
       listener: (context, state) {
         if (state.createSuccess) {
-          Fluttertoast.showToast(
-              msg: AppLocalizations.of(context)!.newDiaryCreateSuccessfully,
-              gravity: ToastGravity.CENTER);
+          _showToast(AppLocalizations.of(context)!.newDiaryCreateSuccessfully);
         } else if (state.errorMessage != null) {
-          Fluttertoast.showToast(
-              msg: state.errorMessage!, gravity: ToastGravity.CENTER);
+          _showToast(state.errorMessage!);
         }
       },
       builder: (context, state) {
@@ -62,20 +59,8 @@ class NewDiaryBody extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Row(
-                      children: [
-                        Text(
-                          AppLocalizations.of(context)!.addToSiteDiary,
-                          style: Theme.of(context).textTheme.titleLarge,
-                        ),
-                        const Spacer(),
-                        CircleIconButton(
-                          icon: Icons.question_mark_rounded,
-                          backgroundColor:
-                              Theme.of(context).colorScheme.secondary,
-                          onTap: () {},
-                        ),
-                      ],
+                    NewDiaryContentHeader(
+                      onTap: () {},
                     ),
                     const NewDiaryContentView(),
                     const SizedBox(height: 20.0),
@@ -96,6 +81,33 @@ class NewDiaryBody extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  void _showToast(String message) {
+    Fluttertoast.showToast(msg: message, gravity: ToastGravity.CENTER);
+  }
+}
+
+@visibleForTesting
+class NewDiaryContentHeader extends StatelessWidget {
+  const NewDiaryContentHeader({super.key, required this.onTap});
+  final VoidCallback onTap;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text(
+          AppLocalizations.of(context)!.addToSiteDiary,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        const Spacer(),
+        CircleIconButton(
+          icon: Icons.question_mark_rounded,
+          backgroundColor: Theme.of(context).colorScheme.secondary,
+          onTap: onTap,
+        ),
+      ],
     );
   }
 }
